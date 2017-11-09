@@ -11,10 +11,9 @@ class Token(object):
 		self.value = v
 
 	def __str__(self):
-		return 'Token(' + self.type + ',' + str(self.value) + ')'
+		return 'Token(%s, %r)' % (self.type, self.value)
 
-	def __repr__(self):
-		return 'Token(' + self.type + ',' + repr(self.value) + ')'
+	__repr__ = __str__
 
 class Lexer(object):
 	'''
