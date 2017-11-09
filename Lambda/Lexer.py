@@ -1,6 +1,8 @@
 # The Lexer
 
+
 EOF, DOT, SLASH, NAME, LPAREN, RPAREN, = 'EOF', 'DOT', 'SLASH', 'NAME', 'LPAREN', 'RPAREN'
+
 
 class Token(object):
 	'''
@@ -14,6 +16,7 @@ class Token(object):
 		return 'Token(%s, %r)' % (self.type, self.value)
 
 	__repr__ = __str__
+
 
 class Lexer(object):
 	'''
@@ -67,7 +70,3 @@ class Lexer(object):
 			return Token(DOT, '.')
 		else:
 			raise SyntaxError('No prase!')
-
-
-		
-

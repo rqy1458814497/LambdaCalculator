@@ -1,12 +1,14 @@
 # Parser
 from Lexer import *
 
+
 class LambdaExpr(object):
 	'''
 		Class of lambda expression.
 		Just a base class.
 	'''
 	pass
+
 
 class Var(LambdaExpr):
 	'''
@@ -20,6 +22,7 @@ class Var(LambdaExpr):
 		return 'Var(%r)' % (self.name)
 
 	__repr__ = __str__
+
 
 class Lambda(LambdaExpr):
 	'''
@@ -35,6 +38,7 @@ class Lambda(LambdaExpr):
 
 	__repr__ = __str__
 
+
 class Apply(LambdaExpr):
 	'''
 		A apply expression in lambda expression.
@@ -48,6 +52,7 @@ class Apply(LambdaExpr):
 		return 'Apply(%s, %s)' % (self.func, self.arg)
 
 	__repr__ = __str__
+
 
 class Parser(object):
 	'''
@@ -83,7 +88,7 @@ class Parser(object):
 				self.eat(RPAREN)
 				if not paren_depth:
 					raise SyntaxError(
-							'Unclosed parentheses: cannot find the matching "(".')
+						'Unclosed parentheses: cannot find the matching "(".')
 				elif not last:
 					raise SyntaxError('Empty parentheses!')
 				elif type(last[-1]) == Lambda and last[-1].expr == None:
